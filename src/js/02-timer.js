@@ -11,10 +11,7 @@ const valueEl = document.querySelectorAll('.value');
 const labelEl = document.querySelectorAll('.label');
 const timerEl = document.querySelector('.timer');
 const field = document.querySelectorAll('.field');
-
 const startBtn = document.querySelector('[data-start]');
-
-let timerId = null;
 
 function timerStyle() {
   dateEl.style.fontWeight = '700';
@@ -75,17 +72,17 @@ function convertMs(ms) {
 }
 
 function addPad(value) {
-  return String(value).padStart(2, 0);
+  return String(value).padStart(2, '0');
 }
 
 function countTime() {
   setActive(false);
 
-  timerId = setInterval(() => {
+  const timerId = setInterval(() => {
     const futureDate = new Date(dateEl.value);
     const dif = futureDate - Date.now();
     const { days, hours, minutes, seconds } = convertMs(dif);
-    if (dif > 1000) {
+    if (dif > 0) {
       dayEl.textContent = addPad(days);
       hourEl.textContent = addPad(hours);
       minEl.textContent = addPad(minutes);
