@@ -8,10 +8,10 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-let timerId = null;
+let intervalId = null;
 
 startBtn.addEventListener('click', () => {
-  timerId = setInterval(() => {
+  intervalId = setInterval(() => {
     const backgroundColor = getRandomHexColor();
     bodyStyle.style.backgroundColor = backgroundColor;
   }, 1000);
@@ -20,7 +20,7 @@ startBtn.addEventListener('click', () => {
 });
 
 stopBtn.addEventListener('click', () => {
-  clearInterval(timerId);
+  clearInterval(intervalId);
   startBtn.disabled = false;
   stopBtn.disabled = true;
 });

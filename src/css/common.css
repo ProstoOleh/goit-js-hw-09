@@ -16,3 +16,12 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.field:not(:last-child)::after {
+  position: relative;
+  content: '\003A';
+  font-size: 40px;
+  bottom: 82;
+  left: 28;
+  text-align: center;
+}
